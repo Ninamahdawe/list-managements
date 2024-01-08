@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { v4 } from "uuid";
 import TodoForm from "./components/TodoForm";
 import TaskList from "./components/TaskList";
 
@@ -41,7 +42,7 @@ function App() {
   };
   const addTask = (text) => {
     const newTask = {
-      id: 5,
+      id: v4(),
       title: text,
       isCompleted: false,
     };
