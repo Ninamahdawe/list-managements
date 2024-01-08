@@ -4,17 +4,21 @@ import Card from "@mui/material/Card";
 import AddTaskIcon from "@mui/icons-material/AddTask";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 
-const TaskItem = () => {
+const TaskItem = ({ title }) => {
   return (
     <Container maxWidth="sm">
       <Card
-        variant="outliend>"
+        variant="outlined"
         style={{ marginTop: 30, backgroundColor: "#E1F5FD" }}
       >
         <CardContent>
           <Typography gutterBottom variant="h5" component="h4">
             <IconButton>
               <AddTaskIcon style={{ color: "#08DC44" }} />
+            </IconButton>
+            {title}
+            <IconButton style={{ float: "right" }}>
+              <DeleteOutlineIcon style={{ color: "#E7000F" }} />
             </IconButton>
           </Typography>
           <Typography variant="body2" color="text.secondary"></Typography>

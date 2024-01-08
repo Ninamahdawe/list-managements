@@ -1,20 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { FormControl, TextField, Button } from "@mui/material";
 import { Container } from "@mui/system";
 
-const TodoForm = () => {
+const TodoForm = ({ addTask }) => {
+  const [text, setText] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addTask(text);
+  };
   return (
     <Container maxWidth="sm">
-      <form>
+      <form onSubmit={handleSubmit}>
         <FormControl fullWidth={true}>
-          <TextField id="filled-basic" label="Task 1 " variant="filled" />
+          <TextField
+            id="filled-basic"
+            label="My To-do "
+            variant="filled"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+          />
           <Button
             variant="contained"
             color="primary"
-            type="add"
+            required={true}
             style={{ marginTop: 5 }}
+            type="submit"
           >
-            Add Task
+            AddTask
           </Button>
         </FormControl>
       </form>
