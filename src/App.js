@@ -4,26 +4,26 @@ import TaskList from "./components/TaskList";
 
 function App() {
   const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      title: "Task 1",
-      isCompleted: false,
-    },
-    {
-      id: 2,
-      title: "Task 2",
-      isCompleted: true,
-    },
-    {
-      id: 3,
-      title: "Task 3",
-      isCompleted: false,
-    },
-    {
-      id: 4,
-      title: "Task 4",
-      isCompleted: false,
-    },
+    // {
+    //   id: 1,
+    //   title: "Task 1",
+    //   isCompleted: false,
+    // },
+    // {
+    //   id: 2,
+    //   title: "Task 2",
+    //   isCompleted: true,
+    // },
+    // {
+    //   id: 3,
+    //   title: "Task 3",
+    //   isCompleted: false,
+    // },
+    // {
+    //   id: 4,
+    //   title: "Task 4",
+    //   isCompleted: false,
+    // },
   ]);
   const checkTask = (id) => {
     console.log(id);
