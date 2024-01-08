@@ -25,6 +25,20 @@ function App() {
       isCompleted: false,
     },
   ]);
+  const checkTask = (id) => {
+    console.log(id);
+    setTasks(tasks.map(tasks => {
+      if (tasks.id === id) {
+        tasks.isCompleted = !tasks.isCompleted
+      }
+      return tasks;
+
+
+    }))
+  };
+  const deleteTask = (id) => {
+    setTasks(tasks.filter(task => task.id !== id));
+  };
   const addTask = (text) => {
     const newTask = {
       id: 5,
@@ -37,7 +51,7 @@ function App() {
   return (
     <div>
       <TodoForm addTask={addTask} />
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} checkTask={checkTask} deleteTask={deleteTask} />
     </div>
   );
 }

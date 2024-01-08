@@ -7,6 +7,7 @@ const TodoForm = ({ addTask }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     addTask(text);
+    setText("");
   };
   return (
     <Container maxWidth="sm">
