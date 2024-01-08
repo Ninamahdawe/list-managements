@@ -27,7 +27,7 @@ const TodoForm = ({ addTask }) => {
             style={{ marginTop: 5 }}
             type="submit"
           >
-            AddTask
+            Add Task
           </Button>
         </FormControl>
       </form>
