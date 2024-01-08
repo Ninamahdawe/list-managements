@@ -21,6 +21,8 @@ To get started with this project, clone the repository and install the dependenc
 
 npm install
 
+Local: http://localhost:3000
+
 ### Technologies
 
 React
