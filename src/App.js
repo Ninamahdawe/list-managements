@@ -1,31 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { v4 } from "uuid";
 import TodoForm from "./components/TodoForm";
 import TaskList from "./components/TaskList";
+import { Typography } from '@mui/material';
+
 
 function App() {
-  const [tasks, setTasks] = useState([
-    // {
-    //   id: 1,
-    //   title: "Task 1",
-    //   isCompleted: false,
-    // },
-    // {
-    //   id: 2,
-    //   title: "Task 2",
-    //   isCompleted: true,
-    // },
-    // {
-    //   id: 3,
-    //   title: "Task 3",
-    //   isCompleted: false,
-    // },
-    // {
-    //   id: 4,
-    //   title: "Task 4",
-    //   isCompleted: false,
-    // },
-  ]);
+  const [tasks, setTasks] = useState(() => {
+    const savedList = localStorage.getItem("tasks");
+    return savedList ? JSON.parse(savedList) : [];
+  }
+  );
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
   const checkTask = (id) => {
     console.log(id);
     setTasks(tasks.map(tasks => {
@@ -50,7 +39,11 @@ function App() {
     setTasks([...tasks, newTask]);
   };
   return (
-    <div>
+    <div style={{ backgroundColor: "#DFF4F8" }}>
+
+      <Typography variant="h4" sx={{ textAlign: 'center', color: '#057DC7', my: 2, border: '2px solid ', p: 1, }} >
+        My Task List
+      </Typography>
       <TodoForm addTask={addTask} />
       <TaskList tasks={tasks} checkTask={checkTask} deleteTask={deleteTask} />
     </div>
